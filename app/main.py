@@ -21,6 +21,9 @@ def main():
     except city.exceptions.CityResolverParseError:
         print("exception while extract city from API response")
         exit(1)
+    except weather.exceptions.WeatherResolverAPIError:
+        print("exception while connect to API for resolve weather")
+        exit(1)
 
 
 if __name__ == "__main__":
