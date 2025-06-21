@@ -1,19 +1,8 @@
 import httpx
 from settings import settings
 
+from .exceptions import WeatherResolverAPIError
 from .schemas import SWeather
-
-
-class WeatherResolverError(Exception):
-    """any exception related with resolve user weather"""
-
-
-class WeatherResolverAPIError(WeatherResolverError):
-    """any exception related with weather API"""
-
-
-class WeatherResolverParseError(WeatherResolverError):
-    """any exception related with parse response"""
 
 
 class WeatherResolverService:
