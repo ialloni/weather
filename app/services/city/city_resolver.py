@@ -13,7 +13,9 @@ class CityResolverService:
 
     @staticmethod
     def __get_response(user_ip: str) -> httpx.Response:
-        return httpx.get(settings.CHECK_CITY_URL + user_ip)
+        return httpx.get(
+            settings.CHECK_CITY_URL + user_ip + "?token=" + settings.CITY_API_KEY
+        )
 
     @staticmethod
     def __validate_response(response: httpx.Response) -> None:

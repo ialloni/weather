@@ -59,6 +59,18 @@ files = [
 ]
 
 [[package]]
+name = "findmyip"
+version = "2.0.1"
+description = "Find your IP address (both internal and external) or check your connection state."
+optional = false
+python-versions = ">=3.12"
+groups = ["main"]
+files = [
+    {file = "findmyip-2.0.1-py3-none-any.whl", hash = "sha256:b193676c0b4d2c9533d44efcee1f25a5113beb87fb9e9e5f6b8a3c19f76121c4"},
+    {file = "findmyip-2.0.1.tar.gz", hash = "sha256:cb1d93eb96e067a6002655374d6ac0b9d1c7a661ff76009d202e47b748eaf8e6"},
+]
+
+[[package]]
 name = "h11"
 version = "0.16.0"
 description = "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1"
@@ -384,4 +396,4 @@ typing-extensions = ">=4.12.0"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13"
-content-hash = "d53e913a42b156f3cd7e44159eaac50e7b3ed5356bcb8e05a4b1bd7fd34d52ab"
+content-hash = "e6dea7c61376a3b375864fc7497d5f25a920e9ed29c2ae6f89d58772a00f950f"

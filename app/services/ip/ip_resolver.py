@@ -24,7 +24,8 @@ class IpResolverService:
 
     @staticmethod
     def __extract_ip_from_response(res: httpx.Response) -> str:
-        ip_groups = re.compile(r"Address: (\d+\.\d+\.\d+\.\d+)").search(res.text)
-        if ip_groups is None:
+        data_ip = res.json()
+        user_ip = data_ip["ip"]
+        if user_ip is None:
             raise IpResolverParseError
-        return ip_groups.group(1)
+        return user_ip
