@@ -1,4 +1,4 @@
-from services import city, ip, weather
+from services import city, ip, weather, weather_formatter
 
 
 def main():
@@ -8,7 +8,7 @@ def main():
         user_weather = weather.weather_resolver.WeatherResolverService.get_weather(
             user_city
         )
-        print(user_weather)
+        print(weather_formatter.weather_print(user_weather))
     except ip.exceptions.IpResolverAPIError:
         print("exception while connect to API for resolve your IP ")
         exit(1)

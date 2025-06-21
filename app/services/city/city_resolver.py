@@ -1,5 +1,3 @@
-import json
-
 import httpx
 from settings import settings
 
@@ -24,8 +22,8 @@ class CityResolverService:
 
     @staticmethod
     def __get_city_from_response(response: httpx.Response) -> str:
-        json_data = response.content.decode()
-        data = json.loads(json_data)
-        if data.get("city") is None:
+        city_data = response.json()
+        city = city_data["city"]
+        if city is None:
             raise CityResolverParseError
-        return data.get("city")
+        return city
