@@ -4,15 +4,15 @@ import httpx
 from settings import settings
 
 
-class IpResolverAPIError(Exception):
-    """any error related connect to API"""
+class IpResolverError(Exception):
+    """any error while resolve user IP"""
 
 
-class IpResolverValidateError(Exception):
+class IpResolverAPIError(IpResolverError):
     """any error related to API"""
 
 
-class IpResolverResponseError(Exception):
+class IpResolverParseError(IpResolverError):
     """any error in handling the response"""
 
 
@@ -36,5 +36,5 @@ class IpResolverService:
     def __extract_ip_from_response(res: httpx.Response) -> str:
         ip_groups = re.compile(r"Address: (\d+\.\d+\.\d+\.\d+)").search(res.text)
         if ip_groups is None:
-            raise IpResolverValidateError
+            raise IpResolverParseError
         return ip_groups.group(1)
