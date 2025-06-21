@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     WEATHER_API_KEY: str
     CHECK_IP_URL: str
     CHECK_CITY_URL: str
+    CHECK_WEATHER_URL: str
 
     model_config = SettingsConfigDict(env_file=ENV_PATH)
 

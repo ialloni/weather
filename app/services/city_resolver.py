@@ -1,5 +1,4 @@
 import json
-import re
 
 import httpx
 from settings import settings
@@ -19,7 +18,7 @@ class CityResolverParseError(CityResolverError):
 
 class CityResolverService:
     @classmethod
-    def get_city(cls, user_ip) -> str:
+    def get_city(cls, user_ip: str) -> str:
         response = cls.__get_response(user_ip)
         cls.__validate_response(response)
         return cls.__get_city_from_response(response)

@@ -8,13 +8,19 @@ from services.ip_resolver import (
     IpResolverParseError,
     IpResolverService,
 )
+from services.weather_resolver import (
+    WeatherResolverAPIError,
+    WeatherResolverParseError,
+    WeatherResolverService,
+)
 
 
 def main():
     try:
         user_ip = IpResolverService.get_ip()
         user_city = CityResolverService.get_city(user_ip)
-        print(user_city)
+        user_weather = WeatherResolverService.get_weather(user_city)
+        print(user_weather)
     except IpResolverAPIError:
         print("exception while connect to API for resolve your IP ")
         exit(1)
